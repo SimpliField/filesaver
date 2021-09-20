@@ -1,3 +1,5 @@
 export interface FileSaverPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  saveToDownloads(options: { url: string, fileName: string }): Promise<{ downloadId: number }>;
+
+  stopDownload(options: { id: number }): Promise<void>;
 }

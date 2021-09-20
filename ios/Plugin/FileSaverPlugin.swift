@@ -7,12 +7,12 @@ import Capacitor
  */
 @objc(FileSaverPlugin)
 public class FileSaverPlugin: CAPPlugin {
-    private let implementation = FileSaver()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
+    @objc func saveToDownloads(_ call: CAPPluginCall) {
+        call.unimplemented()
+    }
+
+    @objc func stopDownload(_ call: CAPPluginCall) {
+        call.unimplemented()
     }
 }

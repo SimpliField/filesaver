@@ -1,7 +1,7 @@
 {
-  "name": "filesaver",
+  "name": "@simplifield/capacitor-filesaver",
   "version": "0.0.1",
-  "description": "Allows saving files to a scoped storage on Android 10+",
+  "description": "Allows downloading and saving files to a public Downloads folder on Android ",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samvimes01/capacitor-filesaver.git.git"
+    "url": "git+https://github.com/SimpliField/filesaver.git"
   },
   "bugs": {
-    "url": "https://github.com/samvimes01/capacitor-filesaver.git/issues"
+    "url": "https://github.com/SimpliField/filesaver.git/issues"
   },
   "keywords": [
     "capacitor",
