@@ -41,14 +41,14 @@ don't forget to add provider after package name in authorities
 ### saveToDownloads(...)
 
 ```typescript
-saveToDownloads(options: { url: string; fileName: string; }) => any
+saveToDownloads(options: { url: string; fileName: string; }) => Promise<{ downloadId: number; }>
 ```
 
 | Param         | Type                                            |
 | ------------- | ----------------------------------------------- |
 | **`options`** | <code>{ url: string; fileName: string; }</code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;{ downloadId: number; }&gt;</code>
 
 --------------------
 
@@ -56,14 +56,12 @@ saveToDownloads(options: { url: string; fileName: string; }) => any
 ### stopDownload(...)
 
 ```typescript
-stopDownload(options: { id: number; }) => any
+stopDownload(options: { id: number; }) => Promise<void>
 ```
 
 | Param         | Type                         |
 | ------------- | ---------------------------- |
 | **`options`** | <code>{ id: number; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 
