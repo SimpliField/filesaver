@@ -11,7 +11,7 @@ commands:
 
 jobs:
 
-g  build:
+  build:
     executor:
       name: node/default
     steps:
