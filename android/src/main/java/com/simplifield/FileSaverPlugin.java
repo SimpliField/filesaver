@@ -3,7 +3,6 @@ package com.simplifield;
 import android.Manifest;
 import android.content.Context;
 import android.os.Build;
-
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Logger;
 import com.getcapacitor.PermissionState;
@@ -15,21 +14,22 @@ import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
 
 @CapacitorPlugin(
-        name = "FileSaver",
-        permissions = {
-                @Permission(
-                        strings = {
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_MEDIA_IMAGES,
-                        Manifest.permission.READ_MEDIA_VIDEO,
-                        Manifest.permission.READ_MEDIA_AUDIO
-                        },
-                        alias = "publicStorage"
-                )
-        }
+    name = "FileSaver",
+    permissions = {
+        @Permission(
+            strings = {
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.READ_MEDIA_VIDEO,
+                Manifest.permission.READ_MEDIA_AUDIO
+            },
+            alias = "publicStorage"
+        )
+    }
 )
 public class FileSaverPlugin extends Plugin {
+
     private static final String PERMISSION_DENIED_ERROR = "Unable to do file operation, user denied permission request";
     private FileSaver implementation = new FileSaver();
 
@@ -55,13 +55,12 @@ public class FileSaverPlugin extends Plugin {
     public void stopDownload(PluginCall call) {
         Context context = getContext();
         try {
-          long id = call.getInt("id");
-          implementation.clearCurrentTask(context, id);
-          call.resolve();
+            long id = call.getInt("id");
+            implementation.clearCurrentTask(context, id);
+            call.resolve();
         } catch (NullPointerException exception) {
             call.resolve();
         }
-
     }
 
     @PermissionCallback
@@ -79,7 +78,7 @@ public class FileSaverPlugin extends Plugin {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             return true;
         }
-        
+
         return getPermissionState("publicStorage") == PermissionState.GRANTED;
     }
 }

@@ -1,6 +1,5 @@
 package com.simplifield;
 
-
 import static android.content.Context.DOWNLOAD_SERVICE;
 
 import android.app.DownloadManager;
