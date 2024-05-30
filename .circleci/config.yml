@@ -11,7 +11,7 @@ commands:
 
 jobs:
 
-  build:
+g  build:
     executor:
       name: node/default
     steps:
@@ -31,7 +31,7 @@ jobs:
       - run: git config user.name "CircleCI"
       - run: mkdir -p ~/.ssh
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
-      - run: npm runrelease
+      - run: npm run release
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run: git push --follow-tags origin main && npm publish
 
