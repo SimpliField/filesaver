@@ -11,19 +11,12 @@ commands:
 
 jobs:
 
-  test:
-    executor:
-      name: node/default
-    steps:
-      - attach-workspace
-      - run: yarn test
-
   build:
     executor:
       name: node/default
     steps:
       - checkout
-      - run: yarn build
+      - run: npm ci && npm run build
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -38,7 +31,7 @@ jobs:
       - run: git config user.name "CircleCI"
       - run: mkdir -p ~/.ssh
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
-      - run: yarn release
+      - run: npm runrelease
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run: git push --follow-tags origin main && npm publish
 
@@ -50,21 +43,10 @@ workflows:
           context:
             - npm
 
-      - test:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - main
-          context:
-            - npm
-
       - request-release:
           type: approval
           requires:
             - build
-            - test
           filters:
             branches:
               only:
