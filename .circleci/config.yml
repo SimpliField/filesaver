@@ -29,7 +29,7 @@ jobs:
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run: yarn release
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run: git push --follow-tags origin develop && npm publish
+      - run: git push --follow-tags origin main && npm publish
 
 
 workflows:
@@ -46,7 +46,7 @@ workflows:
           filters:
             branches:
               only:
-                - develop
+                - main
       - release:
           requires:
             - request-release
