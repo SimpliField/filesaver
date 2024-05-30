@@ -18,6 +18,17 @@ jobs:
       - attach-workspace
       - run: yarn test
 
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run: yarn build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./*
+
   release:
     executor:
       name: node/default
@@ -35,18 +46,30 @@ jobs:
 workflows:
   build-test-release:
     jobs:
+      - build:
+          context:
+            - npm
+
       - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - main
           context:
             - npm
 
       - request-release:
           type: approval
           requires:
+            - build
             - test
           filters:
             branches:
               only:
                 - main
+
       - release:
           requires:
             - request-release
