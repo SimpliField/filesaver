@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/SimpliField/filesaver/compare/v0.0.3...v0.0.6) (2024-05-30)
+
+
+### Bug Fixes
+
+* update to support Android R+ ([27b8217](https://github.com/SimpliField/filesaver/commit/27b82173d7adae1392e66af27dc253f40fa5a686))
+
 ### [0.0.3](https://github.com/SimpliField/filesaver/compare/v0.0.2...v0.0.3) (2021-09-22)
 
 
