@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/SimpliField/filesaver/compare/v0.0.7...v0.0.8) (2024-06-03)
+
+
+### Bug Fixes
+
+* remove unnecessary permissions ([80a94c1](https://github.com/SimpliField/filesaver/commit/80a94c1d8474ad858c9fe52a98c1703a810d2440))
+
 ### [0.0.7](https://github.com/SimpliField/filesaver/compare/v0.0.6...v0.0.7) (2024-05-30)
 
 ### [0.0.6](https://github.com/SimpliField/filesaver/compare/v0.0.3...v0.0.6) (2024-05-30)
